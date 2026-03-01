@@ -41,10 +41,18 @@ def main():
     
     print(f"===== Simple Calculator =====")
 
-    # Ask the user for sample input    
-    num1 = float(input("Enter the first number: "))
-    num2 = float(input("Enter the second number: "))
-    operation = input("Enter the operation (add, subtract, multiply, divide): ").strip().lower()
+    # Ask the user for sample input   
+    try:
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+    except ValueError:
+        print("Invalid input. Please enter valid numbers.")
+        return  # Exit if input is invalid
+    try:
+        operation = input("Enter the operation (add, subtract, multiply, divide): ").strip().lower()
+    except ValueError:
+        print("Invalid input. Please enter a valid operation.")
+        return  # Exit if input is invalid
 
     # Perform the calculation and display the result
     result = simple_calculator(operation, num1, num2)
