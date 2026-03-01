@@ -40,7 +40,7 @@ def simple_calculator(operation: str, num1: float, num2: float) -> float:
 def main():
     
     print(f"===== Simple Calculator =====")
-
+    # this is a test text to see how to use the pop command
     # Ask the user for sample input   
     try:
         num1 = float(input("Enter the first number: "))
