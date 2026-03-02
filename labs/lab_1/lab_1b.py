@@ -22,7 +22,8 @@ def simple_calculator(operation: str, num1: float, num2: float) -> float:
     Returns:
         float: The result of the operation.
     """
-
+    if num1 > 100 or num2 > 100:
+        print("one or more of your input is larger than 100. Just let you know lol")
     if operation == "add":
         return num1 + num2
     elif operation == "subtract":
@@ -46,8 +47,9 @@ def main():
         num1 = float(input("Enter the first number: "))
         num2 = float(input("Enter the second number: "))
     except ValueError:
-        print("Invalid input. Please enter valid numbers.")
+        print("Both num1 and num2 must be numbers.")
         return  # Exit if input is invalid
+    
     try:
         operation = input("Enter the operation (add, subtract, multiply, divide): ").strip().lower()
     except ValueError:
