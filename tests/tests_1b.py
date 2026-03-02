@@ -36,6 +36,14 @@ def test_invalid_operation():
         simple_calculator("modulus", 5, 3)              # Test for invalid operation
     with pytest.raises(ValueError, match="Invalid operation. Please choose from 'add', 'subtract', 'multiply', or 'divide'."):
         simple_calculator("", 5, 3)                     # Test for empty operation
+    with pytest.raises(ValueError, match="Invalid operation. Please choose from 'add', 'subtract', 'multiply', or 'divide'."):
+        simple_calculator("test", 5, 3)   
+
+def test_large_input(capsys):
+    result = simple_calculator("add", 150, 50)       # Test for large input
+    assert result == 200
+    captured = capsys.readouterr()
+    assert "one or more of your input is larger than 100. Just let you know lol" in captured.out
 
 if __name__ == "__main__":
     pytest.main()
